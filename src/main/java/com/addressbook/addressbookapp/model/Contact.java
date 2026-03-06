@@ -1,32 +1,34 @@
-package com.addressbook.addressbookapp.dto;
+package com.addressbook.addressbookapp.model;
 
-public class User {
-	//first and last names, address,
-	//city, state, zip, phone number and
-	//email...
-	
-	private long userId = 101;
+public class Contact {
+	private static long counter = 101;
+	private long userId;
 	private String firstName;
 	private String lastName;
 	private String address;
 	private String city;
 	private String state;
-	private String ZIP;
-	private String number;
+	private String zip;
+	private String phoneNumber;
 	private String email;
-	
-	public User(String firstName, String lastName, String address, String city, String state, String zIP, String number, String email) {
-		this.userId +=1;
+	public Contact(String firstName, String lastName, String address, String city, String state, String zip, String phoneNumber, String email) {
+		this.userId = ++counter;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
 		this.city = city;
 		this.state = state;
-		this.ZIP = zIP;
-		this.number = number;
+		this.zip = zip;
+		this.phoneNumber = phoneNumber;
 		this.email = email;
 	}
 	
+	public long getUserId() {
+		return userId;
+	}
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -57,17 +59,17 @@ public class User {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public String getZIP() {
-		return ZIP;
+	public String getZip() {
+		return zip;
 	}
-	public void setZIP(String zIP) {
-		ZIP = zIP;
+	public void setZip(String zip) {
+		this.zip = zip;
 	}
-	public String getNumber() {
-		return number;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
-	public void setNumber(String number) {
-		this.number = number;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 	public String getEmail() {
 		return email;
@@ -75,13 +77,10 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public long getUserId() {
-		return userId;
-	}
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", address=" + address
-				+ ", city=" + city + ", state=" + state + ", ZIP=" + ZIP + ", number=" + number + ", email=" + email
-				+ "]";
+		return "Contact [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", address="
+				+ address + ", city=" + city + ", state=" + state + ", zip=" + zip + ", phoneNumber=" + phoneNumber
+				+ ", email=" + email + "]";
 	}
 }
