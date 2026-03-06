@@ -82,7 +82,7 @@ public class AddressBookMain {
 				case 7:
 					System.out.println("Enter city name: ");
 					String cityName = sc.next();
-					addressBook
+					addressBook.countNumberByCity(cityName);
 				default:
 					System.out.println("Invalid choise!");
 			}
