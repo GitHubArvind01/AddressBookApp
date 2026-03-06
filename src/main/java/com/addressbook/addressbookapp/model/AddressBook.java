@@ -1,6 +1,7 @@
 package com.addressbook.addressbookapp.model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -105,5 +106,9 @@ public class AddressBook {
 			return;
 		}
 		System.out.println(contactList.stream().filter(x-> x.getCity().equalsIgnoreCase(city)).collect(Collectors.counting()));
+	}
+	
+	public void sortByAlphabetically() {
+		contactList.stream().sorted(Comparator.comparing(Contact::getFirstName)).forEach(System.out::println);
 	}
 }
