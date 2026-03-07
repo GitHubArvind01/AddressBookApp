@@ -1,6 +1,5 @@
 package com.addressbook.addressbookapp.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +14,6 @@ public class ContactService {
 	
 	@Autowired
 	ContactRepository contactRepository;
-	
-	List<Contact> addressBookList = new ArrayList<>();
 	
 	//Create contact
 	public Contact createContact(Contact contact) {
