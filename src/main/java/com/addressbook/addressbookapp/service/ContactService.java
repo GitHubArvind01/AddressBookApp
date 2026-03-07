@@ -40,41 +40,4 @@ public class ContactService {
 		return contactRepository.findById(id)
 							.orElseThrow(()-> new ContactNotFoundException("Contact not found with id: "+id));
 	}
-	
-//	//update by id
-//	public Contact updateById(Long id, Contact contact) {
-//		Contact contactData = addressBookList.stream()
-//				.filter(x->Objects.equals(x.getUserId(), id))
-//				.findFirst()
-//				.orElse(null);
-//		
-//		if(contactData==null) {
-//			throw new ContactNotFoundException("Contact not found with id: "+id);
-//		}
-//		
-//		userData.setFirstName(contact.getFirstName());
-//		userData.setLastName(contact.getLastName());
-//		userData.setAddress(contact.getAddress());
-//		userData.setCity(contact.getCity());
-//		userData.setState(contact.getState());
-//		userData.setZip(contact.getZip());
-//		userData.setPhoneNumber(contact.getPhoneNumber());
-//		userData.setEmail(contact.getEmail());
-//		return userData;
-//	}
-//	
-//	//delete by id 
-//	public String deleteById(Long id) {
-//		Contact userData = addressBookList.stream()
-//				.filter(x->Objects.equals(x.getUserId(), id))
-//				.findFirst()
-//				.orElse(null);
-//		
-//		if(userData==null) {
-//			throw new ContactNotFoundException("Contact not found with id: "+id);
-//		}
-//		
-//		addressBookList.remove(userData);
-//		return "Contact deleted with id: "+id;
-//	}
 }
