@@ -1,6 +1,5 @@
 package com.addressbook.addressbookapp.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +14,6 @@ public class ContactService {
 	
 	@Autowired
 	ContactRepository contactRepository;
-	
-	List<Contact> addressBookList = new ArrayList<>();
 	
 	//Create contact
 	public Contact createContact(Contact contact) {
@@ -39,5 +36,19 @@ public class ContactService {
 	public Contact getById(Long id){
 		return contactRepository.findById(id)
 							.orElseThrow(()-> new ContactNotFoundException("Contact not found with id: "+id));
+	}
+	
+	//update the Contact
+	public Contact updateContact(Long id, Contact newContact) {
+		Contact stored = getById(id);
+		stored.setFirstName(newContact.getFirstName());
+		stored.setLastName(newContact.getLastName());
+		stored.setAddress(newContact.getAddress());
+		stored.setCity(newContact.getCity());
+		stored.setState(newContact.getState());
+		stored.setZip(newContact.getZip());
+		stored.setPhoneNumber(newContact.getPhoneNumber());
+		stored.setEmail(newContact.getEmail());
+		return contactRepository.save(stored);
 	}
 }
